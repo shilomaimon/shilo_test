@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>חיפוש משתמש</title>
+</head>
+<body>
+    <h1>טופס חיפוש משתמש</h1>
+    <form action="/user" method="get">
+        <input type="text" name="username" placeholder="שם משתמש">
+        <button type="submit">חפש</button>
+    </form>
+
+    {% if user %}
+        <h2>נמצא משתמש:</h2>
+        <p>ID: {{ user.id }}</p>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+    {% elif error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
